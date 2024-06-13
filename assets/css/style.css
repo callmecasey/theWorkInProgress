@@ -31,3 +31,11 @@ aside {
 #searchHistory {
   margin-top: 20px;
 }
+.logo {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+  height: 800px;
+  width: 800px;
+}
