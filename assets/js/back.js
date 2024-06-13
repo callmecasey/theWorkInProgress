@@ -1,20 +1,42 @@
-// recipe.js
-$(document).ready(function () {
-  // Load search history from local storage
-  const loadSearchHistory = () => {
-    const searchHistory =
-      JSON.parse(localStorage.getItem("searchHistory")) || [];
-    const searchHistoryList = $("#searchHistory");
-    searchHistoryList.empty();
-    searchHistory.forEach((search, index) => {
-      searchHistoryList.append(
-        `<li class="list-group-item"><a href="#" class="search-link" data-index="${index}">${search}</a></li>`
-      );
-    });
-  };
+// back.js
 
-  // Display recipe details
-  const displayRecipeDetails = () => {
+$(document).ready(function () {
+  // Fetch random cocktail
+  fetchRandomCocktail();
+
+  // Display recipe details if query parameters are present
+  displayRecipeDetails();
+
+  function fetchRandomCocktail() {
+    $.ajax({
+      url: "https://www.thecocktaildb.com/api/json/v1/1/random.php",
+      method: "GET",
+      success: function (response) {
+        if (response.drinks && response.drinks.length > 0) {
+          const cocktail = response.drinks[0];
+          displayRandomCocktail(cocktail);
+        } else {
+          $("#randomCocktail").html("<p>No random cocktail found.</p>");
+        }
+      },
+      error: function () {
+        $("#randomCocktail").html("<p>Failed to fetch random cocktail.</p>");
+      },
+    });
+  }
+
+  function displayRandomCocktail(cocktail) {
+    const cocktailDetails = `
+        <div class="card-body">
+          <h5 class="card-title">${cocktail.strDrink}</h5>
+          <img src="${cocktail.strDrinkThumb}" class="card-img-top" alt="${cocktail.strDrink}">
+          <p class="card-text">${cocktail.strInstructions}</p>
+        </div>
+      `;
+    $("#randomCocktail").html(cocktailDetails);
+  }
+
+  function displayRecipeDetails() {
     const urlParams = new URLSearchParams(window.location.search);
     const label = urlParams.get("label");
     const image = urlParams.get("image");
@@ -32,35 +54,5 @@ $(document).ready(function () {
     } else {
       $("#recipeDetails").html("<p>No recipe details available.</p>");
     }
-  };
-
-  // Handle search form submission
-  $("#searchForm").submit(function (event) {
-    event.preventDefault();
-    const searchInput = $("#searchInput").val();
-    if (searchInput) {
-      saveSearchHistory(searchInput);
-      loadSearchHistory();
-      fetchFoodData(searchInput);
-      $("#searchInput").val("");
-    }
-  });
-
-  // Load search history on page load
-  loadSearchHistory();
-
-  // Display recipe details on page load
-  displayRecipeDetails();
-
-  // Handle click on search history links
-  $(document).on("click", ".search-link", function (event) {
-    event.preventDefault();
-    const searchIndex = $(this).data("index");
-    const searchHistory =
-      JSON.parse(localStorage.getItem("searchHistory")) || [];
-    if (searchHistory[searchIndex]) {
-      $("#searchInput").val(searchHistory[searchIndex]);
-      fetchFoodData(searchHistory[searchIndex]);
-    }
-  });
+  }
 });
