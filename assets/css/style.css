@@ -23,3 +23,11 @@ img {
   height: auto;
   margin-right: 20px;
 }
+
+aside {
+  max-width: 250px;
+}
+
+#searchHistory {
+  margin-top: 20px;
+}
