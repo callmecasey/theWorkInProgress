@@ -16,16 +16,6 @@
     <header class="text-center py-3 bg-primary text-white">
       <div class="container">
         <h1>Recipe Details</h1>
-        <form class="form-inline justify-content-center mt-3" id="searchForm">
-          <input
-            class="form-control mr-2"
-            type="search"
-            id="searchInput"
-            placeholder="Search for food"
-            aria-label="Search"
-          />
-          <button class="btn btn-outline-light" type="submit">Search</button>
-        </form>
       </div>
     </header>
 
@@ -38,10 +28,10 @@
         </main>
 
         <aside class="col-md-3">
-          <h3>Search History</h3>
-          <ul id="searchHistory" class="list-group">
-            <!-- Search history will be displayed here -->
-          </ul>
+          <h3>Random Cocktail</h3>
+          <div id="randomCocktail" class="card">
+            <!-- Random cocktail details will be displayed here -->
+          </div>
         </aside>
       </div>
     </div>
@@ -56,7 +46,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <!-- Bootstrap JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <!-- Recipe JavaScript -->
+    <!-- Custom JavaScript -->
     <script src="./assets/js/back.js"></script>
   </body>
 </html>

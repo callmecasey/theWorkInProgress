@@ -9,7 +9,8 @@ $(document).ready(function () {
 
   $("#denyAge").click(function () {
     alert("You must be 18 years or older to enter this site.");
-    window.location.href = "https://www.google.com"; // Redirect to another site
+    window.location.href =
+      "https://i.chzbgr.com/full/875511040/h8EB4D6E9/famous-cat-meme-which-started-and-launched-the-website-i-can-haz-cheezburger"; // Redirect to another site
   });
 
   // Load search history from local storage
