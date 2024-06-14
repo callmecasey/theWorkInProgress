@@ -1,5 +1,3 @@
-// back.js
-
 $(document).ready(function () {
   // Fetch random cocktail
   fetchRandomCocktail();
@@ -41,22 +39,26 @@ $(document).ready(function () {
     const label = urlParams.get("label");
     const image = urlParams.get("image");
     const ingredients = urlParams.get("ingredients");
+    const recipeUrl = urlParams.get("recipeUrl"); // Assuming recipeUrl is passed as a query parameter
 
     if (label && image && ingredients) {
       const recipeDetails = `
+        <div class="card-body">
           <div class="text-center">
             <h2>${label}</h2>
             <img src="${image}" alt="${label}" class="img-fluid mb-3">
             <p>${ingredients}</p>
           </div>
-        `;
+          <a href="${recipeUrl}" class="btn btn-primary mt-3" id="recipe-link">View Full Recipe</a>
+        </div>
+      `;
       $("#recipeDetails").html(recipeDetails);
     } else {
       $("#recipeDetails").html("<p>No recipe details available.</p>");
     }
   }
-});
 
-$("#back-Btn").on("click", function () {
-  window.location.replace("index.html");
+  $("#back-Btn").on("click", function () {
+    window.location.replace("index.html");
+  });
 });
