@@ -78,6 +78,9 @@ $(document).ready(function () {
       loadSearchHistory();
       fetchFoodData(searchInput);
       $("#searchInput").val("");
+
+      // Hide mainLogo section
+      $("#mainLogo").hide();
     }
   });
 
