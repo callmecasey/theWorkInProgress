@@ -17,6 +17,7 @@ $(document).ready(function () {
       success: function (response) {
         if (response.drinks && response.drinks.length > 0) {
           const cocktail = response.drinks[0];
+          console.log(cocktail)
           displayRandomCocktail(cocktail);
         } else {
           $("#randomCocktail").html("<p>No random cocktail found.</p>");
