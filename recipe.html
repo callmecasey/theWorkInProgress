@@ -13,31 +13,36 @@
     <link href="./assets/css/style.css" rel="stylesheet" />
   </head>
   <body>
-    <header class="text-center py-3 bg-primary text-white">
-      <button
-        type="button"
-        class="btn btn-primary btn-block bg-dark"
-        id="back-Btn"
+    <header class="bg-primary text-white py-3">
+      <div
+        class="container position-relative d-flex align-items-center justify-content-center"
       >
-        Back
-      </button>
-      <div class="container">
-        <h1>Recipe Details</h1>
+        <button
+          type="button"
+          class="btn btn-dark position-absolute back-button"
+          id="back-Btn"
+        >
+          Back
+        </button>
+        <h1 class="m-0">Recipe Details</h1>
       </div>
     </header>
 
     <div class="container my-5">
       <div class="row">
         <main class="col-md-9">
-          <div id="recipeDetails" class="mb-4">
-            <!-- Recipe details will be displayed here -->
+          <div class="card">
+            <div class="card-body" id="recipeDetails">
+              <!-- Recipe details will be displayed here -->
+            </div>
           </div>
         </main>
 
         <aside class="col-md-3">
-          <h3>Random Cocktail</h3>
-          <div id="randomCocktail" class="card">
-            <!-- Random cocktail details will be displayed here -->
+          <div class="card">
+            <div class="card-body" id="randomCocktail">
+              <!-- Random cocktail details will be displayed here -->
+            </div>
           </div>
         </aside>
       </div>
