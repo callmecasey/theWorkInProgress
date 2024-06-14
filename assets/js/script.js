@@ -1,16 +1,10 @@
 // script.js
 $(document).ready(function () {
   // Show age verification modal
-  $("#ageVerificationModal").modal("show");
+  $("#uniqueFoodModal").modal("show");
 
-  $("#confirmAge").click(function () {
-    $("#ageVerificationModal").modal("hide");
-  });
-
-  $("#denyAge").click(function () {
-    alert("You must be 18 years or older to enter this site.");
-    window.location.href =
-      "https://i.chzbgr.com/full/875511040/h8EB4D6E9/famous-cat-meme-which-started-and-launched-the-website-i-can-haz-cheezburger"; // Redirect to another site
+  $("#noAction").click(function () {
+    $("#uniqueFoodModal").modal("hide");
   });
 
   // Load search history from local storage
@@ -47,28 +41,30 @@ $(document).ready(function () {
   // Display food data in the first row
   const displayFoodData = (foods) => {
     const apiResults = $("#apiResults");
+    
+    console.log(apiResults);
     apiResults.empty();
 
     foods.forEach((food) => {
       const foodItem = `
-        <div class="col-md-12 mb-4">
-          <div class="d-flex">
-            <img src="${food.recipe.image}" alt="${
+                  <div class="col-md-12 mb-4">
+                  <div class="d-flex">
+                  <img src="${food.recipe.image}" alt="${
         food.recipe.label
       }" class="mr-3" width="150">
-            <div>
-              <h2><a href="recipe.html?label=${encodeURIComponent(
-                food.recipe.label
-              )}&image=${encodeURIComponent(
+                    <div>
+                    <h2><a href="recipe.html?label=${encodeURIComponent(
+                      food.recipe.label
+                    )}&image=${encodeURIComponent(
         food.recipe.image
       )}&ingredients=${encodeURIComponent(
         food.recipe.ingredientLines.join(", ")
       )}">${food.recipe.label}</a></h2>
-              <p>${food.recipe.ingredientLines.join(", ")}</p>
-            </div>
-          </div>
-        </div>
-      `;
+                          <p>${food.recipe.ingredientLines.join(", ")}</p>
+                          </div>
+                          </div>
+                          </div>
+                          `;
       apiResults.append(foodItem);
     });
   };
@@ -100,3 +96,5 @@ $(document).ready(function () {
     }
   });
 });
+
+

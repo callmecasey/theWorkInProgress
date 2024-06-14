@@ -56,3 +56,7 @@ $(document).ready(function () {
     }
   }
 });
+
+$("#back-Btn").on("click", function () {
+  window.location.replace("index.html");
+});
