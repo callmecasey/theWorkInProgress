@@ -1,4 +1,3 @@
-// script.js
 $(document).ready(function () {
   // Show age verification modal
   $("#uniqueFoodModal").modal("show");
@@ -41,30 +40,31 @@ $(document).ready(function () {
   // Display food data in the first row
   const displayFoodData = (foods) => {
     const apiResults = $("#apiResults");
-    
-    console.log(apiResults);
     apiResults.empty();
 
     foods.forEach((food) => {
+      const recipeUrl = food.recipe.url; // URL to the recipe on Edamam
       const foodItem = `
-                  <div class="col-md-12 mb-4">
-                  <div class="d-flex">
-                  <img src="${food.recipe.image}" alt="${
+        <div class="col-md-12 mb-4">
+          <div class="d-flex">
+            <img src="${food.recipe.image}" alt="${
         food.recipe.label
       }" class="mr-3" width="150">
-                    <div>
-                    <h2><a href="recipe.html?label=${encodeURIComponent(
-                      food.recipe.label
-                    )}&image=${encodeURIComponent(
+            <div>
+              <h2><a href="recipe.html?label=${encodeURIComponent(
+                food.recipe.label
+              )}&image=${encodeURIComponent(
         food.recipe.image
       )}&ingredients=${encodeURIComponent(
         food.recipe.ingredientLines.join(", ")
-      )}">${food.recipe.label}</a></h2>
-                          <p>${food.recipe.ingredientLines.join(", ")}</p>
-                          </div>
-                          </div>
-                          </div>
-                          `;
+      )}&recipeUrl=${encodeURIComponent(recipeUrl)}">${
+        food.recipe.label
+      }</a></h2>
+              <p>${food.recipe.ingredientLines.join(", ")}</p>
+            </div>
+          </div>
+        </div>
+      `;
       apiResults.append(foodItem);
     });
   };
@@ -96,5 +96,3 @@ $(document).ready(function () {
     }
   });
 });
-
-
