@@ -7,8 +7,7 @@ $("#yesAction").click(function (event) {
       console.log(response);
       if (response.meals && response.meals.length > 0) {
         const meal = response.meals[0];
-        console.log(meals);
-        displayRecipeDetails(meals);
+        console.log(meal);
       } else {
         $("#recipeDetails").html("<p>No random meal found.</p>");
       }
