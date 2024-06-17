@@ -12,7 +12,7 @@ $(document).ready(function () {
       JSON.parse(localStorage.getItem("searchHistory")) || [];
     const searchHistoryList = $("#searchHistory");
     searchHistoryList.empty();
-    const recentSearches = searchHistory.slice(-10).reverse();
+    const recentSearches = searchHistory.slice(-10);
     recentSearches.forEach((search, index) => {
       searchHistoryList.append(
         `<li class="list-group-item"><a href="#" class="search-link" data-index="${index}">${search}</a></li>`
@@ -26,7 +26,7 @@ $(document).ready(function () {
     // Remove the search if it already exists
     searchHistory = searchHistory.filter((item) => item !== search);
     // Add the search to the end of the array
-    searchHistory.push(search);
+    searchHistory.unshift(search);
     // Limit the search history to the last 10 entries
     if (searchHistory.length > 10) {
       searchHistory = searchHistory.slice(-10);
