@@ -63,3 +63,18 @@ aside {
 .back-button {
   left: 12px;
 }
+
+.btn-outline-success {
+  color: white !important;
+  border: grey !important;
+}
+
+@media only screen and (max-width: 768px) {
+  /* Styles for screens smaller than 768px (phones) */
+  .mainLogo {
+    display: none; /* Hide logo on mobile */
+  }
+  #searchForm {
+    width: 100%; /* Make search form full width on mobile */
+  }
+}

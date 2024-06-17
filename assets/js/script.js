@@ -20,6 +20,11 @@ $(document).ready(function () {
     });
   };
 
+  $("#yesAction").click(function (event) {
+    event.preventDefault();
+    window.location.replace("recipe.html");
+  });
+
   // Save search history to local storage
   const saveSearchHistory = (search) => {
     let searchHistory = JSON.parse(localStorage.getItem("searchHistory")) || [];
