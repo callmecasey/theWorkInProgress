@@ -12,7 +12,7 @@ $(document).ready(function () {
       JSON.parse(localStorage.getItem("searchHistory")) || [];
     const searchHistoryList = $("#searchHistory");
     searchHistoryList.empty();
-    const recentSearches = searchHistory.slice(-10);
+    const recentSearches = searchHistory.slice(-10).reverse();
     recentSearches.forEach((search, index) => {
       searchHistoryList.append(
         `<li class="list-group-item"><a href="#" class="search-link" data-index="${index}">${search}</a></li>`

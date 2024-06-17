@@ -56,7 +56,7 @@ $(document).ready(function () {
               <h2>${label}</h2>
               <img src="${image}" alt="${label}" class="img-fluid mb-3">
               <p>${ingredients}</p>
-              <a href="${recipeUrl}" target="_blank" class="btn btn-primary mt-3">View Full Recipe</a>
+              <a href="${recipeUrl}" target="_blank" class="btn btn-success mt-3">View Full Recipe</a>
             </div>
           </div>
         `;
@@ -88,7 +88,7 @@ $(document).ready(function () {
 });
 
 function displayRandomRecipe(meal) {
-    const recipeDetails = `
+  const recipeDetails = `
     <div class="card-body">
         <div class="text-center">
         <h2>${meal.strMeal}</h2>
@@ -97,5 +97,5 @@ function displayRandomRecipe(meal) {
         <a href="${meal.strSource}" target="_blank" class="btn btn-primary mt-3">View Full Recipe</a>
         </div>
         `;
-    $("#recipeDetails").html(recipeDetails);
+  $("#recipeDetails").html(recipeDetails);
 }
