@@ -2,6 +2,16 @@ body {
   background-color: #f8f9fa;
 }
 
+a {
+  text-decoration: none;
+  color: grey;
+}
+
+a:hover {
+  text-decoration: none;
+  color: rgb(0, 128, 90);
+}
+
 header,
 footer {
   width: 100%;
@@ -29,6 +39,16 @@ aside {
 
 #searchHistory {
   margin-top: 20px;
+}
+
+.custom1 {
+  background-image: url("https://images.unsplash.com/photo-1543352634-99a5d50ae78e?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
+  background-position: bottom center;
+}
+
+.custom2 {
+  background-image: url("https://images.unsplash.com/photo-1543352634-99a5d50ae78e?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
+  background-position: right center;
 }
 
 .logo {
