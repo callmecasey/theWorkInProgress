@@ -22,7 +22,7 @@ main {
   margin: 0 auto;
 }
 
-.d-flex {
+.form-control: .d-flex {
   display: flex;
   align-items: center;
 }
