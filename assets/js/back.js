@@ -63,14 +63,15 @@ $(document).ready(function () {
       $("#recipeDetails").html(recipeDetails);
     } else if (label === null) {
       //fetching from API
+      const spoonacularApiKey = "1897ec62587a45f8b310218cc81e2f9e";
       $.ajax({
-        url: "https://www.themealdb.com/api/json/v1/1/random.php",
+        url: `https://api.spoonacular.com/recipes/random?number=1&apiKey=${spoonacularApiKey}`,
         method: "GET",
         //when the fetch succeed the food is returned
         success: function (response) {
           console.log(response);
-          if (response.meals && response.meals.length > 0) {
-            const meal = response.meals[0];
+          if (response.recipes && response.recipes.length > 0) {
+            const meal = response.recipes[0];
             console.log(meal);
             displayRandomRecipe(meal);
           } else {
@@ -91,10 +92,10 @@ function displayRandomRecipe(meal) {
   const recipeDetails = `
     <div class="card-body">
         <div class="text-center">
-        <h2>${meal.strMeal}</h2>
-        <img src="${meal.strMealThumb}" alt="${meal.strMeal}" class="img-fluid mb-3">
-        <p>${meal.strInstructions}</p>
-        <a href="${meal.strSource}" target="_blank" class="btn btn-primary mt-3">View Full Recipe</a>
+        <h2>${meal.title}</h2>
+        <img src="${meal.image}" alt="${meal.title}" class="img-fluid mb-3">
+        <p>${meal.instructions}</p>
+        <a href="${meal.sourceUrl}" target="_blank" class="btn btn-primary mt-3">View Full Recipe</a>
         </div>
         `;
   $("#recipeDetails").html(recipeDetails);
